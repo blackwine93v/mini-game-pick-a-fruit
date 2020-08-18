@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.751c79e2.chunk.css",
-    "main.js": "/static/js/main.f219b725.chunk.js",
-    "main.js.map": "/static/js/main.f219b725.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.988d78c9.js",
-    "runtime-main.js.map": "/static/js/runtime-main.988d78c9.js.map",
-    "static/js/2.01bc01c1.chunk.js": "/static/js/2.01bc01c1.chunk.js",
-    "static/js/2.01bc01c1.chunk.js.map": "/static/js/2.01bc01c1.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.e005380343e84a6c1eaaec7c4a5da976.js": "/precache-manifest.e005380343e84a6c1eaaec7c4a5da976.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.751c79e2.chunk.css.map": "/static/css/main.751c79e2.chunk.css.map",
-    "static/js/2.01bc01c1.chunk.js.LICENSE.txt": "/static/js/2.01bc01c1.chunk.js.LICENSE.txt",
-    "static/media/App.scss": "/static/media/cursor.92435ad9.cur"
+    "main.css": "/mini-game-pick-a-fruit/static/css/main.e42ef0c8.chunk.css",
+    "main.js": "/mini-game-pick-a-fruit/static/js/main.54f80541.chunk.js",
+    "main.js.map": "/mini-game-pick-a-fruit/static/js/main.54f80541.chunk.js.map",
+    "runtime-main.js": "/mini-game-pick-a-fruit/static/js/runtime-main.c4f44453.js",
+    "runtime-main.js.map": "/mini-game-pick-a-fruit/static/js/runtime-main.c4f44453.js.map",
+    "static/js/2.01bc01c1.chunk.js": "/mini-game-pick-a-fruit/static/js/2.01bc01c1.chunk.js",
+    "static/js/2.01bc01c1.chunk.js.map": "/mini-game-pick-a-fruit/static/js/2.01bc01c1.chunk.js.map",
+    "index.html": "/mini-game-pick-a-fruit/index.html",
+    "precache-manifest.471b7a5ad461a2066c6fd15db13c9eb1.js": "/mini-game-pick-a-fruit/precache-manifest.471b7a5ad461a2066c6fd15db13c9eb1.js",
+    "service-worker.js": "/mini-game-pick-a-fruit/service-worker.js",
+    "static/css/main.e42ef0c8.chunk.css.map": "/mini-game-pick-a-fruit/static/css/main.e42ef0c8.chunk.css.map",
+    "static/js/2.01bc01c1.chunk.js.LICENSE.txt": "/mini-game-pick-a-fruit/static/js/2.01bc01c1.chunk.js.LICENSE.txt",
+    "static/media/App.scss": "/mini-game-pick-a-fruit/static/media/cursor.92435ad9.cur"
   },
   "entrypoints": [
-    "static/js/runtime-main.988d78c9.js",
+    "static/js/runtime-main.c4f44453.js",
     "static/js/2.01bc01c1.chunk.js",
-    "static/css/main.751c79e2.chunk.css",
-    "static/js/main.f219b725.chunk.js"
+    "static/css/main.e42ef0c8.chunk.css",
+    "static/js/main.54f80541.chunk.js"
   ]
 }
