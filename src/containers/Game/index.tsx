@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Board from '../../features/Board'
 import StartScreen from '../../features/StartScreen'
-import Timer from '../../features/Timer'
 import styles from './style.module.scss';
 import { LEVELS } from '../../constant';
 import { findLevel } from '../../utils';
@@ -16,7 +15,8 @@ interface State {
   selectedLevel: string,
   isEndTime: boolean,
   isStartedGame: boolean,
-  currentBoardNumber: number | null
+  currentBoardNumber: number | null,
+  remainTime: number | null,
 }
 
 export type GameStatus = 'playing' | 'won' | 'lose' | 'waiting';
@@ -30,12 +30,14 @@ class Game extends Component<Props, State> {
       isEndTime: false,
       isStartedGame: false,
       currentBoardNumber: null,
+      remainTime: null,
     }
 
     this.handleChangeLevel = this.handleChangeLevel.bind(this);
     this.handleTimeEnd = this.handleTimeEnd.bind(this);
     this.onBoardNextNumber = this.onBoardNextNumber.bind(this);
     this.handleStartGame = this.handleStartGame.bind(this);
+    this.handleTimerUpdate = this.handleTimerUpdate.bind(this);
   }
 
   get gameStatus() : GameStatus {
@@ -72,6 +74,10 @@ class Game extends Component<Props, State> {
     this.setState({ isEndTime: true });
   }
 
+  handleTimerUpdate(remainTime: number) {
+    this.setState({ remainTime });
+  }
+
   handleStartGame() {
     this.setState({ isStartedGame: true });
   }
@@ -81,12 +87,11 @@ class Game extends Component<Props, State> {
   }
 
   render() {
-    const { selectedLevel } = this.state;
+    const { selectedLevel, currentBoardNumber, remainTime } = this.state;
 
     return (
       <div className={styles.container}>
-        <Board toNumber={40} onNextNumber={this.onBoardNextNumber} />
-        {/* {
+        {
           this.gameStatus === 'waiting' && (
             <StartScreen
               gameStatus={this.gameStatus}
@@ -98,11 +103,11 @@ class Game extends Component<Props, State> {
         }
         <div className={styles.board}>
           {
-            this.gameStatus === 'won' && <WonGame />
+            this.gameStatus === 'won' && <WonGame totalNumber={this.level.toNumber} remainTime={remainTime} currentBoardNumber={currentBoardNumber} />
           }
 
           {
-            this.gameStatus === 'lose' && <LoseGame />
+            this.gameStatus === 'lose' && <LoseGame totalNumber={this.level.toNumber} currentBoardNumber={currentBoardNumber} />
           }
 
           {
@@ -112,10 +117,10 @@ class Game extends Component<Props, State> {
         {
           this.gameStatus === 'playing' && (
             <div className={styles.panel}>
-              <InfoPanel time={this.level.time} onTimeEnd={this.handleTimeEnd} />
+              <InfoPanel time={this.level.time} onTimeEnd={this.handleTimeEnd} onTimerUpdate={this.handleTimerUpdate} />
             </div>
           )
-        } */}
+        }
       </div>
     )
   }

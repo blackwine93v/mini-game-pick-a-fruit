@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.scss';
+import './animation.scss';
 import Game from './containers/Game';
 
 function App() {

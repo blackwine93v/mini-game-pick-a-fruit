@@ -78,7 +78,11 @@ function randomSize() {
 function randomStyle() {
   const randomData = [-30, -20, -10, -5, 0, 5, 10, 20, 30];
   return {
-    transform: `translate(${getRandom(randomData)}px, ${getRandom(randomData)}px) rotate(${getRandom(randomData)}deg)`
+    position: 'relative',
+    top: `${getRandom(randomData)}px`,
+    bottom: `${getRandom(randomData)}px`,
+    left: `${getRandom(randomData)}px`,
+    right: `${getRandom(randomData)}px`
   };
 }
 
@@ -94,11 +98,13 @@ class Number extends Component<Props, State> {
     super(props);
 
     this.hanldeSelect = this.hanldeSelect.bind(this);
-    this.randomStyle = {}; //randomStyle();
+    this.makeEffect = this.makeEffect.bind(this);
+    this.randomStyle = randomStyle();
     this.randomSize = randomSize();
     this.fruit = getRandom(listFruit);
   }
   state = {
+    effectClass: ''
   }
 
   componentDidMount() {
@@ -110,11 +116,22 @@ class Number extends Component<Props, State> {
     onClick(number);
   }
 
+  makeEffect() {
+    this.setState({ effectClass: 'swing' });
+  }
+
   render() {
     const { number, style, hide } = this.props;
+    const { effectClass } = this.state;
+
     return (
-      <div onClick={this.hanldeSelect} className={cx(styles.container, this.randomSize, hide && styles.hide)} style={{...style, ...this.randomStyle}}>
-        <div className={styles.fruitItem}>
+      <div
+        onClick={this.hanldeSelect}
+        className={cx(styles.container, this.randomSize, hide && styles.hide)}
+        style={{...style, ...this.randomStyle}}
+        onMouseEnter={this.makeEffect}
+      >
+        <div className={cx(effectClass, styles.fruitItem)}>
           {this.fruit}
         </div>
         <span className={styles.number}>{number}</span>

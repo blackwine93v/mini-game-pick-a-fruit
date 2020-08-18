@@ -22,9 +22,14 @@ class ChooseLevel extends Component<Props, State> {
         {
           Object.values(LEVELS).map(level => (
             <div key={level.id} className={cx(styles.levelBox, value === level.id && styles.active)} onClick={() => onChange(level.id)}>
-              <span className={styles.levelName}>{level.name}</span>
-              <span className={styles.qty}>Số lượng: {level.toNumber}</span>
-              <span className={styles.time}>Thời gian: {level.time}</span>
+              <div>
+                <span className={styles.levelLabel}>Cấp độ</span>
+                <span className={styles.levelName}>{level.name}</span>
+              </div>
+              <div className={styles.info}>
+                <span className={styles.qty}>Số lượng: {level.toNumber}</span>
+                <span className={styles.time}>Thời gian: {level.time}</span>
+              </div>
             </div>
           ))
         }

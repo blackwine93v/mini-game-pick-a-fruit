@@ -34,3 +34,7 @@ export function pickOneInList(list: any[]) {
 export function findLevel(levelId: string) {
   return Object.values(LEVELS).find(l => l.id === levelId) || LEVELS.fresher;
 }
+
+export function totalPoint(fruits: number, remainTime: number) {
+  return (Number(fruits) + Number(remainTime)) || 0;
+}

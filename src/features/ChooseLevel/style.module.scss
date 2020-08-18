@@ -2,34 +2,56 @@
   width: 100%;
   display: flex;
   margin: 10px;
-  max-width: 600px;
   margin-bottom: 100px;
   height: 300px;
+  justify-content: center;
+  align-items: center;
   
   .levelBox {
     flex: 1;
     display: flex;
     flex-direction: column;
     padding: 10px 5px;
-    border-radius: 8px 8px 1px 1px;
     overflow: hidden;
     margin: 10px 5px;
     height: 100%;
     justify-content: center;
     align-items: center;
     opacity: 0.3;
-    border: solid 0.1px black;
+    border: solid 10px white;
+    border-radius: 0px 30px 0px 30px;
+    max-width: 200px;
     transition: opacity 0.3s, border 0.1s;
 
     &.active {
-      border: double 3px blue;
+      border-color: yellow;
       opacity: 1;
     }
-  }
 
-  .levelName {
-    text-transform: uppercase;
+    .levelLabel {
+      color: white;
+    }
+
+    .levelName {
+      text-transform: uppercase;
+      font-size: 30px;
+      color: white;
+      display: block;
+      height: 150px;
+      font-weight: 600;
+    }
+    
+    .info {
+      display: flex;
+      flex-direction: column;
+      .qty {
+        font-size: 14px;
+        color: white;
+      }
+      .time {
+        font-size: 14px;
+        color: white;
+      }
+    }
   }
-  .qty {}
-  .time {}
 }

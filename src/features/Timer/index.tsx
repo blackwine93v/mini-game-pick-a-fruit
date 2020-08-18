@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import styles from './style.module.scss';
 
 interface Props {
   time: number,
   onEnd?: () => void,
-  onStart?: () => void
+  onStart?: () => void,
+  onUpdateTime?: (remainTime: number) => void
 }
 interface State {
   remainTime: number | null,
@@ -45,10 +47,14 @@ export default class Timer extends Component<Props, State> {
   }
 
   startTimer() {
-    const { onEnd, onStart, time } = this.props;
+    const { onEnd, onStart, time, onUpdateTime } = this.props;
 
     if (typeof onStart === 'function') {
       onStart();
+    }
+
+    if (typeof onUpdateTime === 'function') {
+      onUpdateTime(time);
     }
 
     this.setState({ remainTime: time });
@@ -65,6 +71,9 @@ export default class Timer extends Component<Props, State> {
           clearInterval(this.timer);
           this.timer = undefined;
         }
+        if (typeof onUpdateTime === 'function') {
+          onUpdateTime(newRemainTime);
+        }
 
         return { remainTime: newRemainTime };
       })
@@ -74,8 +83,10 @@ export default class Timer extends Component<Props, State> {
   render() {
     const { remainTime } = this.state;
     return (
-      <div>
-        {remainTime}
+      <div className={styles.container}>
+        <div className={styles.clock} />
+        <span className={styles.second}>{remainTime}</span>
+        <span className={styles.unit}>giây</span>
       </div>
     )
   }

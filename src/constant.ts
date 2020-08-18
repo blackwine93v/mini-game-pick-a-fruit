@@ -1,20 +1,26 @@
 export const LEVELS = {
   fresher: {
     id: 'fresher',
-    name: 'Dễ',
-    toNumber: 1,
-    time: 3,
+    name: 'Mầm',
+    toNumber: 10,
+    time: 10,
   },
   junior: {
     id: 'junior',
-    name: 'Trung bình',
+    name: 'Lá',
     toNumber: 20,
     time: 30,
   },
   senior: {
     id: 'senior',
-    name: 'Khó',
+    name: 'Hoa',
     toNumber: 30,
-    time: 40000,
+    time: 40,
+  },
+  super: {
+    id: 'super',
+    name: 'Quả',
+    toNumber: 30,
+    time: 30,
   }
 };

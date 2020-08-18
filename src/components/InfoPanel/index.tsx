@@ -3,13 +3,14 @@ import Timer from '../../features/Timer'
 
 interface Props {
   time: number,
-  onTimeEnd: () => void
+  onTimeEnd: () => void,
+  onTimerUpdate: (remainTimer: number) => void
 }
 
-const InfoPanel = ({ time, onTimeEnd }: Props) => {
+const InfoPanel = ({ time, onTimeEnd, onTimerUpdate }: Props) => {
   return (
     <div>
-      <Timer time={time} onEnd={onTimeEnd} />
+      <Timer time={time} onEnd={onTimeEnd} onUpdateTime={onTimerUpdate} />
     </div>
   )
 }
